@@ -5,13 +5,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<title>Gauge.js</title>
 	<link type="text/css" rel="stylesheet" href="js/gauge.js/gauge.min.css" />
+	<style type="text/css">
+		html,
+		body { margin: 0; padding: 0; background: #333; }
+		#gaugesWrap { display: block; text-align: center; overflow: hidden; }
+	</style>
 </head>
 <body>
 
 	<div id="gaugesWrap"></div>
 
-	<script type="text/javascript" src="js/gauge.js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/gauge.js/src/jquery.js"></script>
 	<script type="text/javascript" src="js/gauge.js/gauge.min.js"></script>
+	<script type="text/javascript">
+		$('#gaugesWrap').valueGauge({
+			id: 'currentMonthTurnover',
+			title: 'Denne måned',
+			value: 200000,
+			valueMax: 700000
+		});
+		setTimeout(function () { $('#currentMonthTurnover').trigger('updateValue', 710000); }, 3000);
+	</script>
 
 </body>
 </html>

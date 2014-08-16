@@ -31,6 +31,48 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/gauge.js\/img\/color_wheel.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 88460,
+		"inputAbbreviatedPath": "\/js\/gauge.js\/img\/color_wheel.png",
+		"outputAbbreviatedPath": "\/js\/gauge.js\/img\/color_wheel.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/js\/gauge.js\/img\/needle.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7135,
+		"inputAbbreviatedPath": "\/js\/gauge.js\/img\/needle.png",
+		"outputAbbreviatedPath": "\/js\/gauge.js\/img\/needle.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/js\/gauge.js\/src\/animations.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/gauge.js\/src\/animations.less",
+		"outputAbbreviatedPath": "\/js\/gauge.js\/css\/animations.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
+		},
 	"\/js\/gauge.js\/src\/gauge.js": {
 		"fileType": 64,
 		"ignore": 0,

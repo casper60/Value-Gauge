@@ -1,5 +1,181 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
+@-webkit-keyframes isMaxedAnimation {
+  0% {
+    -webkit-transform: rotate(135deg);
+  }
+  50% {
+    -webkit-transform: rotate(137deg);
+  }
+  100% {
+    -webkit-transform: rotate(135deg);
+  }
+}
+@-moz-keyframes isMaxedAnimation {
+  0% {
+    -moz-transform: rotate(135deg);
+  }
+  50% {
+    -moz-transform: rotate(137deg);
+  }
+  100% {
+    -moz-transform: rotate(135deg);
+  }
+}
+@-o-keyframes isMaxedAnimation {
+  0% {
+    -o-transform: rotate(135deg);
+  }
+  50% {
+    -o-transform: rotate(137deg);
+  }
+  100% {
+    -o-transform: rotate(135deg);
+  }
+}
+@keyframes isMaxedAnimation {
+  0% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(137deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+.valueGauge {
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  font-family: Arial, Verdana, Tahoma, sans-serif;
+  padding: 20px 55px 10px 20px;
+}
+.valueGauge .gauge {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  background: #FFF;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+.valueGauge .gauge:before {
+  content: '';
+  background: url('img/color_wheel.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+}
+.valueGauge .gauge:after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: #333;
+  margin: -15px 0 0 -15px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+}
+.valueGauge .needle {
+  width: 38px;
+  height: 126px;
+  background: url('img/needle.png');
+  background-size: 100% 100%;
+  position: absolute;
+  top: 22.5px;
+  right: auto;
+  bottom: auto;
+  left: 111px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transition: -webkit-transform 1200ms ease-in;
+  -moz-transition: -webkit-transform 1200ms ease-in;
+  -o-transition: -webkit-transform 1200ms ease-in;
+  transition: -webkit-transform 1200ms ease-in;
+  -webkit-transform-origin: 19px 107px;
+  -moz-transform-origin: 19px 107px;
+  -o-transform-origin: 19px 107px;
+  transform-origin: 19px 107px;
+}
+.valueGauge .values {
+  width: 90px;
+  line-height: 30px;
+  text-align: center;
+  background: #EEE;
+  border: 1px solid #e1e1e1;
+  margin-left: -65px;
+  position: absolute;
+  top: 170px;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.valueGauge .values:after {
+  content: attr(data-max);
+  width: 60px;
+  left: 124px;
+  padding: 0 6px;
+  color: #FFF;
+  background: #24A816;
+  text-shadow: 0 1px 0 #16640d;
+  border: 1px solid #29bf19;
+  position: absolute;
+  top: 40px;
+  right: auto;
+  bottom: auto;
+  left: 128px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.valueGauge .title {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #FFF;
+  padding-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.valueGauge .values,
+.valueGauge .values:after,
+.valueGauge .needle {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.valueGauge.isMaxed .needle {
+  -webkit-animation: isMaxedAnimation 95ms infinite;
+  -moz-animation: isMaxedAnimation 95ms infinite;
+  -o-animation: isMaxedAnimation 95ms infinite;
+  animation: isMaxedAnimation 95ms infinite;
 }

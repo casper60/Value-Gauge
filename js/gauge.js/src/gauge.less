@@ -1,15 +1,111 @@
 @import url('mixins.less');
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-
-#gaugeWrap {
-
-}
+@import url('animations.less');
 
 .valueGauge {
+
+	@circle-size: 220px;
+	@center-size: 30px;
+	@value-width: 90px;
+
+	@pattern-offsets: 8px, 8px, 8px, 8px;
+	@wrapper-paddings: 20px, 55px, 10px, 20px;
+	@value-margin: (@value-width / 2) + extract(@wrapper-paddings, 4);
+
+	@needle-width: 38px;
+	@needle-height: 126px;
+	@needle-x: 111px;
+	@needle-y: 2.5px + extract(@wrapper-paddings, 1);
+
+	@value-font-size: 24px;
+	@title-font-size: 16px;
+
+	// Wrapper
+	font-size: @value-font-size;
+	font-weight: bold;
+	position: relative;
+	display: inline-block;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	.arrToPadding(@wrapper-paddings);
+
+	.gauge {
+		// Outer circle
+		position: relative;
+		width: @circle-size;
+		height: @circle-size;
+		background: #FFF;
+		.borderRadius(100%);
+
+		// Pattern circle
+		&:before {
+			content: '';
+			background: url('img/color_wheel.png') no-repeat;
+			background-size: 100% 100%;
+			.borderRadius(100%);
+			.arrToAbsolute(@pattern-offsets);
+		}
+		// Center circle
+		&:after {
+			content: '';
+			width: @center-size;
+			height: @center-size;
+			background: #333;
+			margin: -(@center-size / 2) 0 0 -(@center-size / 2);
+			.borderRadius(100%);
+			.absolute(50%,auto,auto,50%);
+		}
+	}
+	.needle {
+		width: @needle-width;
+		height: @needle-height;
+		background: url('img/needle.png');
+		background-size: 100% 100%;
+		.absolute(@needle-y,auto,auto,@needle-x);
+
+		// Transition properties
+		.transformRotate(-135deg);
+		.transition('-webkit-transform', 1200ms, 'ease-in');
+		.transformOrigin((@needle-width / 2), (@needle-height - 19));
+	}
+	.values {
+		width: @value-width;
+		line-height: 30px;
+		text-align: center;
+		background: #EEE;
+		border: 1px solid darken(#EEE, 5%);
+		margin-left: -@value-margin;
+		.absolute(@circle-size - 50,auto,auto,50%);
+		.borderRadius(6px);
+
+		// Max value
+		&:after {
+			content: attr(data-max);
+			width: 60px;
+			left: 124px;
+			padding: 0 6px;
+			color: #FFF;
+			background: #24A816;
+			text-shadow: 0 1px 0 darken(#24A816, 15%);
+			border: 1px solid lighten(#24A816, 5%);
+			.absolute(40px,auto,auto,128px);
+			.boxShadow(0,0,5px,rgba(0,0,0,.5));
+			.borderRadius(6px);
+		}
+	}
+	.title {
+		width: 100%;
+		text-align: center;
+		font-size: @title-font-size;
+		color: #FFF;
+		padding-top: 10px;
+		text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+	}
+
+	// Preserve 3D
+	.values,
+	.values:after,
+	.needle { .preserve3d(); }
+
+	// Gauge maxed out animation
+	&.isMaxed .needle { .animation(isMaxedAnimation, 95ms, infinite); }
 
 }

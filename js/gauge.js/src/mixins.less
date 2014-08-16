@@ -52,3 +52,9 @@
 		 -o-border-radius: @radius;
 			border-radius: @radius;
 }
+.arrToPadding(@arr) {
+	padding: extract(@arr, 1) extract(@arr, 2) extract(@arr, 3) extract(@arr, 4);
+}
+.arrToAbsolute(@arr) {
+	.absolute(extract(@arr, 1), extract(@arr, 2), extract(@arr, 3), extract(@arr, 4));
+}
