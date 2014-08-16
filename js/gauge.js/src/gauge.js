@@ -3,21 +3,26 @@
 	$.fn.valueGauge = function (params) {
 		var range = { from: -135, to: 135 },
 			ticks = range.to - range.from,
-			element = buildTemplate(params);
+			element = formatTemplate(params);
 
-		// Formats number from 10.000 and up (eg. 10.210 => 10k)
+		/*
+			Formatting methods
+			------------------
+			Methods for formatting data for output
+		*/
 		function formatNum(num) {
 			num = String(parseInt(num, 10));
+
+			// Formats number from 10.000 and up (eg. 10.210 => 10k)
 			return num < 10000 ? num : (num / 1000).toFixed(num % 1000 !== 0) + 'k';
 		}
 
-		// Builds css transform object
 		function formatTransformCss(transform) {
+			// Build CSS transform object with vendor prefixes
 			return { webkitTransform: transform, MozTransform: transform, transform: transform };
 		}
 
-		// Creates a template using jquery to avoid dependencies on other frameworks
-		function buildTemplate(data) {
+		function formatTemplate(data) {
 			var gaugeWrap = $('<div />', { class: 'valueGauge', id: data.id }),
 				circle = $('<div />', { class: 'gauge' }),
 				needle = $('<div />', { class: 'needle' }),
@@ -31,7 +36,11 @@
 			return gaugeWrap.append(circle).append(values).append(needle).append(title);
 		}
 
-		// Updates gauge needle rotation and text values
+		/*
+			Render methods
+			--------------
+			Update elements in DOM
+		*/
 		function updateValue(value, valueMax) {
 			var rangeMax = range.to,
 				valueMaxOption = (valueMax || params.valueMax),

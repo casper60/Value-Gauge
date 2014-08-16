@@ -9,47 +9,39 @@
 .transformOrigin(@x, @y) {
 	-webkit-transform-origin: @x @y;
 	   -moz-transform-origin: @x @y;
-		 -o-transform-origin: @x @y;
 			transform-origin: @x @y;
 }
 .transition(@property, @duration, @easing) {
 	-webkit-transition: ~'@{property} @{duration} @{easing}';
 	   -moz-transition: ~'@{property} @{duration} @{easing}';
-		 -o-transition: ~'@{property} @{duration} @{easing}';
 			transition: ~'@{property} @{duration} @{easing}';
 }
 .transformRotate(@degrees) {
 	-webkit-transform: rotate(@degrees);
 	   -moz-transform: rotate(@degrees);
-		 -o-transform: rotate(@degrees);
 			transform: rotate(@degrees);
 }
 .animation(@animation, @duration, @timing) {
 	-webkit-animation: ~'@{animation} @{duration} @{timing}';
 	   -moz-animation: ~'@{animation} @{duration} @{timing}';
-		 -o-animation: ~'@{animation} @{duration} @{timing}';
 			animation: ~'@{animation} @{duration} @{timing}';
 }
 .preserve3d() {
 	-webkit-backface-visibility: hidden;
 	   -moz-backface-visibility: hidden;
-		 -o-backface-visibility: hidden;
 			backface-visibility: hidden;
 	-webkit-transform-style: preserve-3d;
 	   -moz-transform-style: preserve-3d;
-		 -o-transform-style: preserve-3d;
 			transform-style: preserve-3d;
 }
 .boxShadow(@x, @y, @radius, @color) {
 	-webkit-box-shadow: @x @y @radius @color;
 	   -moz-box-shadow: @x @y @radius @color;
-		 -o-box-shadow: @x @y @radius @color;
 			box-shadow: @x @y @radius @color;
 }
 .borderRadius(@radius) {
 	-webkit-border-radius: @radius;
 	   -moz-border-radius: @radius;
-		 -o-border-radius: @radius;
 			border-radius: @radius;
 }
 .arrToPadding(@arr) {

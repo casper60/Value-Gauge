@@ -6,17 +6,16 @@
 	<title>Gauge.js</title>
 	<link type="text/css" rel="stylesheet" href="js/gauge.js/gauge.min.css" />
 	<style type="text/css">
-		html,
-		body { margin: 0; padding: 0; background: #333; }
+		html, body { margin: 0; padding: 0; background: #333; }
 		#gaugesWrap { display: block; text-align: center; overflow: hidden; }
 	</style>
+	<script type="text/javascript" src="js/gauge.js/src/jquery.js"></script>
+	<script type="text/javascript" src="js/gauge.js/gauge.min.js"></script>
 </head>
 <body>
 
 	<div id="gaugesWrap"></div>
 
-	<script type="text/javascript" src="js/gauge.js/src/jquery.js"></script>
-	<script type="text/javascript" src="js/gauge.js/gauge.min.js"></script>
 	<script type="text/javascript">
 		$('#gaugesWrap').valueGauge({
 			id: 'currentMonthTurnover',
@@ -24,7 +23,10 @@
 			value: 200000,
 			valueMax: 700000
 		});
-		setTimeout(function () { $('#currentMonthTurnover').trigger('updateValue', 710000); }, 3000);
+
+		setTimeout(function () {
+			$('#currentMonthTurnover').trigger('updateValue', 710000);
+		}, 3000);
 	</script>
 
 </body>
