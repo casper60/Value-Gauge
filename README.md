@@ -4,7 +4,7 @@ Value-Gauge
 jQuery + CSS3 Gauge showing value out of total.
 
 
-
+<img src="http://www.art-journal.dk/sites/gaugejs/gaugejsPreview.png" alt="" /><br>
 <a href="http://www.art-journal.dk/sites/gaugejs/index.html">Working demo here</a><br>
 <br>
 
