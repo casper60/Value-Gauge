@@ -20,6 +20,17 @@
     -moz-transform: rotate(135deg);
   }
 }
+@-ms-keyframes isMaxedAnimation {
+  0% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(137deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
 @keyframes isMaxedAnimation {
   0% {
     transform: rotate(135deg);
@@ -46,6 +57,7 @@
   background: #FFF;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
   border-radius: 100%;
 }
 .valueGauge .gauge:before {
@@ -54,6 +66,7 @@
   background-size: 100% 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
   border-radius: 100%;
   position: absolute;
   top: 8px;
@@ -69,6 +82,7 @@
   margin: -15px 0 0 -15px;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
   border-radius: 100%;
   position: absolute;
   top: 50%;
@@ -88,12 +102,15 @@
   left: 111px;
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
   -webkit-transition: -webkit-transform 1200ms ease-in;
-  -moz-transition: -webkit-transform 1200ms ease-in;
-  transition: -webkit-transform 1200ms ease-in;
+  -moz-transition: -moz-transform 1200ms ease-in;
+  -ms-transition: -mz-transform 1200ms ease-in;
+  transition: transform 1200ms ease-in;
   -webkit-transform-origin: 19px 107px;
   -moz-transform-origin: 19px 107px;
+  -ms-transform-origin: 19px 107px;
   transform-origin: 19px 107px;
 }
 .valueGauge .values {
@@ -110,6 +127,7 @@
   left: 50%;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
   border-radius: 6px;
 }
 .valueGauge .values:after {
@@ -128,9 +146,11 @@
   left: 128px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
   border-radius: 6px;
 }
 .valueGauge .title {
@@ -146,13 +166,16 @@
 .valueGauge .needle {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 .valueGauge.isMaxed .needle {
   -webkit-animation: isMaxedAnimation 95ms infinite;
   -moz-animation: isMaxedAnimation 95ms infinite;
+  -ms-animation: isMaxedAnimation 95ms infinite;
   animation: isMaxedAnimation 95ms infinite;
 }

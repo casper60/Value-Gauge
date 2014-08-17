@@ -19,7 +19,10 @@
 
 		function formatTransformCss(transform) {
 			// Build CSS transform object with vendor prefixes
-			return { webkitTransform: transform, MozTransform: transform, transform: transform };
+			return {
+				webkitTransform: transform, MozTransform: transform,
+				msTransform: transform, transform: transform
+			};
 		}
 
 		function formatTemplate(data) {
