@@ -26,17 +26,18 @@
 		}
 
 		function formatTemplate(data) {
+			// Define template elements
 			var gaugeWrap = $('<div />', { class: 'valueGauge', id: data.id }),
-				circle = $('<div />', { class: 'gauge' }),
 				needle = $('<div />', { class: 'needle' }),
 				values = $('<div />', { class: 'values' }).text(formatNum(data.value)),
+				circle = $('<div />', { class: 'gauge' }).append(values).append(needle),
 				title = $('<div />', { class: 'title' }).text(data.title);
 
-			// Apply data values
-			values.attr('data-min', 0).attr('data-max', formatNum(data.valueMax));
+			// Apply data attribute values
+			values.attr('data-max', formatNum(data.valueMax));
 
-			// Merge elements to one object
-			return gaugeWrap.append(circle).append(values).append(needle).append(title);
+			// Merge elements and return as one object
+			return gaugeWrap.append(circle).append(title);
 		}
 
 		/*
@@ -53,8 +54,7 @@
 			// Updates needle rotation to reflect progress
 			element.find('.needle').css(formatTransformCss(transform));
 			// Update text values
-			element.find('.values').text(formatNum(value));
-			element.find('.values').attr('data-max', formatNum(valueMaxOption));
+			element.find('.values').text(formatNum(value)).attr('data-max', formatNum(valueMaxOption));
 			// Add maxed out animation when valueMax is reached
 			element.one('webkitTransitionEnd transitionend', function () {
 				element.toggleClass('isMaxed', value > valueMaxOption);
